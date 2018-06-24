@@ -231,7 +231,7 @@ public class Fenetre extends JFrame {
 						txtlblpanogauche =  tmpFile.getName() + " => " + vL96.getM_NomFichier() + " =  " + k ;
 						
 						affiche("apres txtlbl  : " + txtlblpanogauche);
-						jtxaPanoGauche.append(txtlblpanogauche + newline);
+						/txaPanoGauche.append(txtlblpanogauche + newline);
 						jtxaPanoGauche.selectAll();
 
 						// Make sure the new text is visible, even if there

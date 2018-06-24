@@ -87,7 +87,7 @@ public class Fenetre extends JFrame {
 			}
 		});
 		/*
-		 * , nombre, fichier_in, fichier_out; qsfq
+		 * , nombre, fichier_in, fichier_out;
 		 */
 		JPanel center = new JPanel();
 		center.setLayout(new FlowLayout());
@@ -121,10 +121,13 @@ public class Fenetre extends JFrame {
 		lblPanoDroite.setBackground(Color.red);
 		lblPanoDroite.setFont(ft);
 		jtxaPanoGauche = new JTextArea(5 , 40);
+		// jtxaPanoGauche.setFont(ft);
+		//jtxaPanoGauche.setLineWrap(true);
+		// jtxaPanoGauche.
 		
 		jtxaPanoGauche.setPreferredSize(new Dimension(200, 200));
-		
-		// scroll pour le jtx pano gauche 
+		//jtxaPanoGauche.setAutoscrolls(true);
+		// scroll pour le jtx pano gaucje 
 		JScrollPane jcpGauche = new JScrollPane(jtxaPanoGauche);
 
 		pano.setLayout(new FlowLayout());
@@ -228,9 +231,16 @@ public class Fenetre extends JFrame {
 						// on cree l expression pour mettre a jour l'information du dernier fichier
 						// extraits
 						// affiche("avant txtlbl : " + txtlblpanogauche);
-						txtlblpanogauche =  tmpFile.getName() + " => " + vL96.getM_NomFichier() + " =  " + k ;
-						
+						//if (txtlblpanogauche.length() == 0)
+							txtlblpanogauche =  tmpFile.getName() + " => " + vL96.getM_NomFichier() + " =  " + k ;
+						/*			+ " = " + k;
+						else
+							// txtlblpanogauche = txtlblpanogauche + "\n" + tmpFile.getName() + " => " + k;
+							txtlblpanogauche = txtlblpanogauche + tmpFile.getName() + " => " + vL96.getM_NomFichier()
+							*/		
 						affiche("apres txtlbl  : " + txtlblpanogauche);
+						//String text = jtxaPanoGauche.getText() + txtlblpanogauche;
+						//jtxaPanoGauche.append(text + newline);
 						jtxaPanoGauche.append(txtlblpanogauche + newline);
 						jtxaPanoGauche.selectAll();
 
