@@ -1,0 +1,126 @@
+package test4;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+
+public class Test {
+
+	public static void main(String[] args) {
+		try {
+			Class.forName("org.postgresql.Driver");
+			System.out.println("Driver ok ");
+
+			String url = "jdbc:postgresql://192.168.1.53:5432/Ecole";
+			String user = "postgres";
+			String passwd = "bitnami";
+
+			Connection conn = DriverManager.getConnection(url, user, passwd);
+			System.out.println("connexion effective");
+			// creation dun objet statement
+			Statement state = conn.createStatement(ResultSet.CONCUR_UPDATABLE , ResultSet.TYPE_SCROLL_INSENSITIVE);
+			String querypreparee = "SELECT prof_nom as Nom, prof_prenom as Prenom , prof_id as ID from professeur ";
+			querypreparee += "WHERE prof_nom= ? " ;
+			// ou deuxieme trou pour l identifiant 
+			querypreparee += " OR prof_id = ? " ;
+			
+			// on cree l objet avec la requete en parametre 
+			PreparedStatement prepare = conn.prepareStatement(querypreparee,  ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			
+			// on remplace le premier argument par : 
+			prepare.setString(1, "MAMOU");
+			
+			// et on remplace le deuxieme 
+			prepare.setInt(2,  2);
+			// on affiche la resquete preparee
+			affiche(prepare.toString());
+			
+			// on modifie le premier argument 
+			//prepare.setString(1, "TOTO");
+			// on modifie le second 
+			prepare.setInt(2, 5);
+
+			affiche(prepare.toString());
+			//  https://openclassrooms.com/courses/apprenez-a-programmer-en-java/fouiller-dans-sa-base-de-donnees#/id/r-2186171
+			// l objet resultset contient le resultat de la requete sql
+			ResultSet result = prepare.executeQuery();
+			// on recupere les metadatas
+			ResultSetMetaData resultMeta = result.getMetaData();
+			System.out.println("\n**************************************************************");
+			// on affiche le nom des colonnes
+			for (int i = 1; i <= resultMeta.getColumnCount(); i++) {
+				System.out.println("\t" + resultMeta.getColumnName(i).toUpperCase() + "\t *");
+			}
+			System.out.println("\n**************************************************************");
+
+			while (result.next()) {
+				for (int i = 1; i <= resultMeta.getColumnCount(); i++)
+					System.out.println("\t" + result.getObject(i).toString() + "\t |");
+
+				System.out.println("\n**************************************************************");
+			}
+			result = state.executeQuery("SELECT prof_nom, prof_prenom from PROFESSEUR");
+			resultMeta = result.getMetaData();
+			// on affiche le nom des colonnes
+			for (int i = 1; i <= resultMeta.getColumnCount(); i++) {
+				System.out.println("\t" + resultMeta.getColumnName(i).toUpperCase() + "\t *");
+			}
+			System.out.println("\n************************************");
+
+			while (result.next()) {
+				for (int i = 1; i <= resultMeta.getColumnCount(); i++)
+					System.out.println("\t" + result.getObject(i).toString() + "\t |");
+
+				System.out.println("\n*******************************************");
+			}
+			// troisieme requete https://openclassrooms.com/courses/apprenez-a-programmer-en-java/fouiller-dans-sa-base-de-donnees#/id/r-2186122
+			// SELECT PROFESSEUR.PROf_nom , PROFESSEUR.PROF_PRENOM , mat_nom from PRofesseur, J_MAT_PROF , MATIERE WHERE PROFesseur.prof_id = J_MAT_PROF.jmp_prof_k and J_MAT_PROF.jmp_mat_k = mat_id order by prof_nom
+			// solution proposee 
+			/*
+			 *  String query = "SELECT prof_nom, prof_prenom, mat_nom FROM professeur";
+
+      query += " INNER JOIN j_mat_prof ON jmp_prof_k = prof_id";
+
+      query += " INNER JOIN matiere ON jmp_mat_k = mat_id ORDER BY prof_nom";
+
+
+			 */
+			String query = "SELECT PROFESSEUR.PROf_nom as Nom , PROFESSEUR.PROF_PRENOM as Prenom  , mat_nom as Cours from PRofesseur, J_MAT_PROF , MATIERE WHERE PROFesseur.prof_id = J_MAT_PROF.jmp_prof_k and J_MAT_PROF.jmp_mat_k = mat_id order by prof_nom" ;
+			ResultSet result1 = state.executeQuery(query) ;
+			resultMeta = result1.getMetaData() ;
+			System.out.println("\n************************************");
+			for (int i = 1; i <= resultMeta.getColumnCount(); i++) {
+				System.out.println("\t" + resultMeta.getColumnName(i).toUpperCase() + "\t *");
+			}
+			System.out.println("\n************************************");
+			String tmpNom = "" , tmpPrenom = "";
+			while(result1.next()) {
+				if (result1.getString("NOM").toUpperCase().equals(tmpNom)) {
+					// toujours le meme nom 
+					//System.out.println("\t" + result1.getObject("NOM").toString() + "\t |"+ "\t" + result1.getObject("PRENOM").toString() + "\t |"+"\t" + result1.getObject("COURS").toString() + "\t |");
+					System.out.println("\t |\t |\t" + result1.getObject("COURS").toString() + "\t |");
+				}else {
+					System.out.println("\t" + result1.getObject("NOM").toString() + "\t |"+ "\t" + result1.getObject("PRENOM").toString() + "\t |"+"\t" + result1.getObject("COURS").toString() + "\t |");
+					tmpNom = result1.getString("NOM").toUpperCase();
+					tmpPrenom = result1.getString("PRENOM").toUpperCase();
+				}
+			}
+			/*
+			 * a faire https://openclassrooms.com/courses/apprenez-a-programmer-en-java/fouiller-dans-sa-base-de-donnees#/id/r-2186127
+			 */
+			result.close();
+			result1.close();
+			state.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+public static void affiche(String str) {
+	System.out.println(str);
+}
+}

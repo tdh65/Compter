@@ -1,0 +1,20 @@
+package tpcalculatrice;
+import java.math.*;
+public class TestCalc {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("main0");
+		double b ;
+		double a = 145696.2111425232336659;
+		 
+		 
+		System.out.println("rint " + Math.rint(a)  + " decimale : "  + (a - Math.rint(a)) );
+		System.out.println("Floor a " + Math.floor(a) + " floor rint a " + Math.rint((a - Math.rint(a)) )  );
+		//FenetreGridLayout fen = new FenetreGridLayout();
+		FenCalc fec = new FenCalc();
+		System.out.println("main1");
+
+	}
+
+}

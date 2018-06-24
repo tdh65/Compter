@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="C:/Users/pfwj843/Documents/Prog/Export_Java/Extract96.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/CompteCpte/src/ExtractL96.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" mainClassHandleIdentifier="=CompteCpte/src&lt;compteui{TestL96.java[TestL96" manifestLocation="/CompteCpte/src/ExtractL96" manifestVersion="1.0" reuseManifest="true" saveManifest="true" usesManifest="true">
+        <sealing sealJar="true">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <file path="/CompteCpte/.classpath"/>
+        <file path="/CompteCpte/.project"/>
+        <javaElement handleIdentifier="=CompteCpte/src"/>
+    </selectedElements>
+</jardesc>

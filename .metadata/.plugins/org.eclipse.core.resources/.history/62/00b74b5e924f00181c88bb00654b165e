@@ -1,0 +1,14 @@
+package tpcalculatrice;
+
+public class TestCalc {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("main0");
+		//FenetreGridLayout fen = new FenetreGridLayout();
+		FenCalc fec = new FenCalc();
+		System.out.println("main1");
+
+	}
+
+}

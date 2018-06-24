@@ -1,0 +1,293 @@
+package compteui;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import l96.L96;
+import compte.Compte;
+import compte.InvalidFormalCompte;
+
+public class Fenetre extends JFrame {
+	private String pathToImport = null; // ou les fichiers a extraire sont stockés un repertoire simple donne par
+										// fichier .ini
+	private String pathToExport = null;/*
+										 * ou les fichiers extraits sont ecrits : stockés dans un repertoire simple
+										 * donne par fichier .ini attention au renommages des fichiers
+										 */
+
+	private final String fichierINI = "./armagnac.ini";
+	private JPanel pano;
+	private JPanel panHaut;
+	private JButton quit, start, rechercher_dans, archiver;
+	private JLabel rep_in, rep_out, nombre, fichier_in, fichier_out;
+	private JLabel lblPanoDroite, lblPanoGauche;
+	private JTextArea jtxaPanoGauche;
+	private int nbEnreg, nbFichier, nbLignesLues;
+
+	public Fenetre() {
+		// on cherche le fichier ini nomme armagnac.ini
+		// a faire
+		/*
+		 * 
+		 * /* definition de la fenetre
+		 */
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.setSize(new Dimension(500, 300));
+		/*
+		 * definition du panneau d affichage de l extraction
+		 */
+		this.construitPano();
+		this.nombre = new JLabel();
+		this.nombre.setText("Nombre d'enregistremets = 0");
+		this.nbEnreg = 0;
+		this.nbFichier = 0;
+		this.pathToImport = "P:\\data\\entree\\ARMAGNAC";/*
+															 * construite le panneau haut label fichier in , label
+															 * fichier out bouton start , recherche (+ tard)
+															 */
+		panHaut = new JPanel();
+		start = new JButton("Start");
+		start.setPreferredSize(new Dimension(75, 30));
+		rep_in = new JLabel();
+		rep_in.setText("Data : " + this.pathToImport);
+		rep_out = new JLabel();
+		rep_out.setText("Sortie : Pas implemente");
+		this.start.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				traiteExtractionEnregistrements(pathToImport, "L96");
+			}
+		});
+		/*
+		 * , nombre, fichier_in, fichier_out;
+		 */
+		JPanel center = new JPanel();
+		center.setLayout(new FlowLayout());
+		center.add(rep_in);
+		center.add(rep_out);
+		panHaut.setLayout(new BorderLayout());
+		panHaut.add(start, BorderLayout.SOUTH);
+
+		panHaut.add(center, BorderLayout.CENTER);
+		this.getContentPane().add(pano, BorderLayout.CENTER);
+		this.getContentPane().add(this.nombre, BorderLayout.SOUTH);
+		this.getContentPane().add(panHaut, BorderLayout.NORTH);
+
+	}
+
+	/*
+	 * definition du panneau d affichage du resultat de l extraction aura un scroll
+	 */
+	protected void construitPano() {
+		this.pano = new JPanel();
+		this.pano.setPreferredSize(new Dimension(500, 300));
+		this.pano.setBackground(Color.white);
+		Font ft = new Font("Tahoma", Font.LAYOUT_LEFT_TO_RIGHT, 16);
+
+		lblPanoGauche = new JLabel();
+		lblPanoDroite = new JLabel();
+		lblPanoGauche.setHorizontalAlignment(NORMAL);
+		lblPanoGauche.setBackground(Color.green);
+		lblPanoGauche.setFont(ft);
+		lblPanoDroite.setHorizontalAlignment(NORMAL);
+		lblPanoDroite.setBackground(Color.red);
+		lblPanoDroite.setFont(ft);
+		jtxaPanoGauche = new JTextArea();
+		// jtxaPanoGauche.setFont(ft);
+		jtxaPanoGauche.setLineWrap(true);
+		// jtxaPanoGauche.
+		jtxaPanoGauche.setAutoscrolls(true);
+		jtxaPanoGauche.setPreferredSize(new Dimension(300, 200));
+		jtxaPanoGauche.setAutoscrolls(true);
+
+		pano.setLayout(new FlowLayout());
+		pano.add(new JScrollPane(jtxaPanoGauche));
+		pano.add(lblPanoDroite);
+
+	}
+
+	/*
+	 * procede a l'extraction des enregistremeents d un meme type de formulaire
+	 */
+	protected void traiteExtractionEnregistrements(String pStrNomRepertoire, String pStrNomListing) {
+		affiche(pStrNomRepertoire + " : " + pStrNomListing);
+		// d abord les erreurs d arguments
+		if (pStrNomListing.length() < 1)
+			return;
+		if (pStrNomRepertoire.length() < 2)
+			return;
+		FileReader vFileReadIN = null;
+		/*
+		 * test lecture repertoire
+		 */
+		if (pStrNomListing.equals("L96")) {
+
+			List<File> listeFichiers = this.getListeFichiersATraiter(new String(pStrNomRepertoire));
+			if (listeFichiers == null ) {
+				// le repertoire n existe pas ou n est pas trouve 
+				affiche("Le repertoire " + pStrNomRepertoire + " n'existe pas ou n'est pas trouve!");
+				return;
+			}
+				
+			Iterator<File> lit = listeFichiers.iterator();
+			File tmpFile = null;
+			List nbEnregs = new ArrayList();
+			Compte vCpte = new Compte(); // stockage temporaire d un compte
+			L96 vL96 = new L96(); // stockage d'un enregistrement L96 extrait temporaire
+			// array list des enregistremenets
+			// on stocke les valeurs extraites pour +tard
+			ArrayList<L96> listeL96 = new ArrayList<L96>(); // liste des enregistrements l96 extraits pour un fichier
+			// stocker le couple nomfichier + nbre extraits
+			Hashtable<String, Integer> result = new Hashtable<String, Integer>();
+			String txtlblpanogauche = "";
+			int k = 0;
+			int i = 0;
+			int j = 0;
+			int h = 0;
+			txtlblpanogauche = "";
+			if (listeFichiers.size() > 0) {
+				while (lit.hasNext()) {
+					// affiche(listFichiers[h].getName() + " est un fichier ");
+					tmpFile = (File) lit.next();
+					// affiche("Liste Fichiers " + tmpFile.getName());
+					try {
+						vFileReadIN = new FileReader(tmpFile);
+					} catch (FileNotFoundException ex1) {
+						// TODO Auto-generated catch block
+						ex1.printStackTrace();
+					}
+
+					BufferedReader vBuffReadIN = new BufferedReader(vFileReadIN);
+					/*
+					 * on teste pour savoir le type de form
+					 * 
+					 */
+					if (vL96.tester(tmpFile) == true) {
+						// affiche("vL96 = vrai " + vL96.getM_Form() );
+						// affiche(vL96.toString() ) ;
+
+						// affiche("Cntre Financier : " + vL96.getM_CentreFinancier());
+
+					} else
+						affiche("vL96 = faux ==>  n est pas reconnu " + vL96.toString());
+					affiche(vL96.toString());
+					try {
+						String vtmp = null;
+						i = 0; // nb lignes lues
+						k = 0; // nb enregistrements trouves et stockes
+						/*
+						 * pour l extraction des enregistrements du listing et donc ceux a compter
+						 */
+						Pattern p4 = Pattern.compile(
+								"^*\\s.+(\\d{3})\\s(\\d{7})\\s{2}(\\w)\\s{2}\\*\\s{4}(\\d{6})\\s+\\*\\s{2}(\\d{6}\\s-\\s[\\w|\\s].+)\\s.+\\*$"); // \\s.+\\((\\s+\\d+\\.\\d+)\\)")
+						// ; // ;
+						Matcher m;
+						String pat = "^*\\s+REPORT\\s=\\s(\\w.+)\\s+USER\\s=\\s(\\w.+)*$";
+						String pattern = "\\*";
+						String vSerie, vCompte, vCle, vBGP, vCF;
+						while (((vtmp = vBuffReadIN.readLine()) != null)) {
+							i++; // nb ligne lues
+							// affiche(vtmp);
+							m = p4.matcher(vtmp);
+							if (m.find()) {
+								k++;
+								m.start();
+								vCpte = new Compte(m.group(1), m.group(2), m.group(3));
+								listeL96.add(new L96(vCpte, m.group(4), m.group(5)));
+							}
+						}
+						// on stocke le couple nom fichier + nombre d enregistrements extraits
+						result.put(new String(tmpFile.getName()), k);
+						// on cree l expression pour mettre a jour l'information du dernier fichier
+						// extraits
+						// affiche("avant txtlbl : " + txtlblpanogauche);
+						if (txtlblpanogauche.length() == 0)
+							txtlblpanogauche = txtlblpanogauche + tmpFile.getName() + " => " + vL96.getM_NomFichier()
+									+ " = " + k;
+						else
+							// txtlblpanogauche = txtlblpanogauche + "\n" + tmpFile.getName() + " => " + k;
+							txtlblpanogauche = txtlblpanogauche + tmpFile.getName() + " => " + vL96.getM_NomFichier()
+									+ " = " + k;
+						affiche("apres txtlbl  : " + txtlblpanogauche);
+						jtxaPanoGauche.setText(txtlblpanogauche + "\n");
+						this.nbEnreg += k;
+						this.nbLignesLues += i;
+
+					} catch (IOException ex) {
+						// TODO Auto-generated catch block
+						ex.printStackTrace();
+					} catch (InvalidFormalCompte e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					/*
+					 * on ferme les flux ouverts
+					 */
+					try {
+						vBuffReadIN.close();
+						vFileReadIN.close();
+					} catch (IOException ex) {
+						// TODO Auto-generated catch block
+						ex.printStackTrace();
+					}
+				}
+			}
+			this.nombre.setText(
+					"Nombre d'enregistrements : " + this.nbEnreg + " Nombre Lignes lues = " + this.nbLignesLues);
+		}
+		return;
+
+	}
+
+	/*
+	 * retourne une liste de fichiers a traiter appartenant a un repertoire sauf
+	 * les repertoires
+	 */
+	protected List<File> getListeFichiersATraiter(String pStrNomRepertoire) {
+		File fichiers = new File(pStrNomRepertoire);
+		File[] listFichiers = fichiers.listFiles();
+		List<File> listeFichier = new ArrayList<File>();
+		if (!fichiers.exists())
+			return null ;
+		for (int h = 0; h < listFichiers.length; h++) {
+			if (listFichiers[h].isDirectory()) {
+				// on passe on ne garde que les fichiers a traiter
+			} else {
+				// on les retient
+				listeFichier.add((File) listFichiers[h]);
+			}
+		}
+		return listeFichier;
+	}
+
+	public static void affiche(String t) {
+		System.out.println("Fenetre / " + t);
+	}
+
+}

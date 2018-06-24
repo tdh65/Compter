@@ -1,0 +1,5 @@
+package gerertransaction;
+
+public class SdzSingleton {
+
+}

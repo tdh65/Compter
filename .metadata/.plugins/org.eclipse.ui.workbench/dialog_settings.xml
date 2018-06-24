@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="448" key="DIALOG_X_ORIGIN"/>
+		<item value="119" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item value="-1" key="dialogHeight"/>
+		<item value="-1" key="dialogWidth"/>
+		<list key="textEntries">
+		</list>
+		<list key="orderedElements">
+		</list>
+		<list key="orderedProviders">
+		</list>
+		<list key="textArray">
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.fx.ide.jdt.ui.javafx" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.emf.ecore.Wizard.category.ID"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jst.j2ee.internal"/>
+			<item value="org.eclipse.fx.ide"/>
+			<item value="org.eclipse.pde.PDE"/>
+			<item value="org.eclipse.rse.ui.newWizards.rseCategory"/>
+			<item value="org.eclipse.wst.server.ui"/>
+		</list>
+	</section>
+	<section name="InstallationDialogSettings">
+		<item value="684" key="DIALOG_WIDTH"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="725" key="DIALOG_HEIGHT"/>
+		<item value="168" key="DIALOG_X_ORIGIN"/>
+		<item value="-323" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="ImportExportAction">
+		<item value="org.eclipse.jdt.internal.ui.jarpackager.JarPackageWizard" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
+		<item value="org.eclipse.ui.wizards.import.FileSystem" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.jdt.ui.Java"/>
+		</list>
+	</section>
+	<section name="FileSystemImportWizard">
+		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
+		<item value="true" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/media/apprenti/ADF4-8A9A/CompteCpte"/>
+			<item value="/media/apprenti/ADF4-8A9A/src/compteui"/>
+			<item value="/home/apprenti/Images"/>
+			<item value="/home/apprenti/Bureau/travail_java/testStream"/>
+			<item value="/media/DataTravail/EclipseWorkspaces/Workspace-Eclipse/coursjava/src/testIO"/>
+		</list>
+	</section>
+</section>

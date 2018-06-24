@@ -1,0 +1,242 @@
+package tpcalculatrice;
+
+import java.awt.BorderLayout;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+
+
+public class FenCalc extends JFrame {
+
+	private Panneau panGlob; // le panneau global qui remplit le contentPane
+	private Panneau panChiffre; // contient les chiffres
+	private Panneau panOperateur;
+	private Panneau panAfficheur;
+	private JLabel afficheur;
+	private byte operation; // l'operateur selectionne
+	private double valEnCours = 0.0; // le resultat intermediaire
+	private double saisie = 0.0;
+	private boolean efface = false;
+	private JButton bouton = new JButton("Mon premier bouton");
+	private JButton bouton2 = new JButton("Mon II bouton");
+	private String nameFenetre = "Bouton";
+
+	/*
+	 * constructeur par defaut definit les 3 panneaux chiffre -> gridlayout
+	 * operateur ->boxlayout vertical agencement des trois par borderlayout centre
+	 * est nord
+	 */
+	public FenCalc() {
+		System.out.println("fenetre ; ");
+
+		this.setTitle("Calculatrice");
+		this.setLocationRelativeTo(null);
+		this.setSize(300, 300);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// construit le panneau chiffre
+		this.construitPanneauChiffre();
+		// construit le panneau afficheur
+		this.construitPanneauAfficheur();
+		// construit le panneau operateur
+		this.construitPanneauOperateur();
+		// ajoute les panneaux au panneau ppal
+		this.getContentPane().add(this.panChiffre, BorderLayout.CENTER);
+		this.getContentPane().add(panAfficheur, BorderLayout.NORTH);
+		this.getContentPane().add(this.panOperateur, BorderLayout.EAST);
+		this.pack();
+		this.setVisible(true);
+
+	}
+
+	/*
+	 * construit le panneau d'operateurs
+	 */
+	private void construitPanneauOperateur() {
+		int vHeight = 0;
+		int vWidth = 0;
+		this.panOperateur = new Panneau();
+		this.panOperateur.setLayout(new BoxLayout(panOperateur, BoxLayout.PAGE_AXIS));
+		String[] t = { "C", "+", "-", "*", "/" };
+		for (String v : t) {
+			JButton b = new JButton(v);
+			if (v == "C") {
+				b.setForeground(Color.RED);
+				/*
+				 * on affecte par defaut la valeur de taille du btn C
+				 */
+				// vWidth = b.getWidth() ;
+				// vHeight = b.getHeight() ;
+			}
+			// b.setPreferredSize(new Dimension(vWidth,vHeight));
+			b.setMnemonic(v.charAt(0));
+			this.panOperateur.add(b);
+			System.out.println(b.getText() + " h " + b.getHeight() + " w " + b.getWidth());
+
+		}
+
+	}
+
+	/*
+	 * construit le panneau afficheur sur un seul panel pas de layout particulier
+	 * 
+	 */
+	private void construitPanneauAfficheur() {
+		this.panAfficheur = new Panneau();
+		this.afficheur = new JLabel();
+		// this.afficheur.setBackground(Color.LIGHT_GRAY);
+		this.afficheur.setPreferredSize(new Dimension(250, 50));
+		// this.afficheur.setForeground(Color.orange);
+		Font ft = new Font("Tahoma", Font.LAYOUT_RIGHT_TO_LEFT, 16);
+		this.afficheur.setFont(ft);
+		this.afficheur.setHorizontalAlignment(JLabel.RIGHT);
+
+		String t = String.valueOf(valEnCours);
+
+		this.afficheur.setText(t);
+		this.panAfficheur.add(afficheur);
+
+	}
+
+	/*
+	 * construit le panneau contenant les chiffres et le gridlayout
+	 */
+	private void construitPanneauChiffre() {
+		this.panChiffre = new Panneau();
+
+		GridLayout gl = new GridLayout();
+		// on definit les colonnes et lignes
+		gl.setColumns(3);
+		gl.setRows(4);
+		// on definit lespacement entre les colonnes et les lignes
+		gl.setHgap(5); // 5 pixels H orizontal
+		gl.setVgap(3); // 3 pixels V ertical
+
+		this.panChiffre.setLayout(gl);
+
+		String[] t = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "=" };
+		for (String v : t ) {
+			affiche ("v " + v ) ;
+			JButton b = new JButton(v);
+			b.setName(v);
+			b.setMnemonic(v.charAt(0));
+			b.addActionListener(new ChiffrePannListener());
+			affiche ("nom bouton " + b.getName() ) ;
+			this.panChiffre.add(b);
+
+		}
+		//this.panChiffre.addActionListener(new ChiffrePannListener());
+		//this.panChiffre.addInputMethodListener(new ChiffrePannListener());
+
+	}
+
+	/*
+	 * effectue les calculs
+	 */
+	protected double calcule(double valEncours, double saisie, byte operation) {
+		double res = 0.0;
+		if (operation == '/') {
+			try {
+				res = valEncours / saisie;
+
+			} catch (ArithmeticException e) {
+				res = 0.0;
+			}
+
+		} else if (operation == '+') {
+			res = valEncours + saisie;
+		} else if (operation == '-') {
+			res = valEncours - saisie;
+		} else if (operation == '*') {
+			res = valEncours * saisie;
+		}
+		return res;
+	}
+
+	/*
+	 * on constuit la classe anonyme ecoutant le panneau chiffre
+	 * 
+	 */
+	class ChiffrePannListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			// cas special du "="
+			double resultat;
+			String sourceArg = arg0.getSource().toString() ;
+			affiche("arg0 " + arg0.getSource()) ;
+			// recupere la derniere valeur de la saisie
+			affiche("arg0 + modif source " + sourceArg.substring(19,1)); 
+			try {
+				saisie = Double.valueOf(afficheur.getText());
+			}catch(NumberFormatException ex ) {
+				saisie = 0.0 ; 
+				return ;
+			}
+
+			affiche("Saisie = " + saisie);
+			if ((arg0.getSource() == "=")) {
+
+				resultat = calcule(valEnCours, saisie, operation);
+			} else {
+				// ce sont les chiffres ou les virgules on concatene
+				// on verifie qu il n y a pas deja une virgule et qu il a appuye sur une virgule
+				// on faite rien dans ce cas
+				if (arg0.getSource().toString() == ".") {
+					if (verifieVirgule(afficheur.getText()) == true) {
+						// on fait rien
+					} else {
+						// on concatene la virgule
+						afficheur.setText(afficheur.getText().concat("."));
+					}
+				}else {
+					// ce sont des chiffres on les concatene
+					affiche("nom bouton "+ arg0.getSource());
+					afficheur.setText(afficheur.getText().concat(arg0.getSource().toString()));
+				}
+			}
+
+		}
+
+	}
+
+	// remete à zero les compteurs et les valeurs
+	private void raz() {
+		this.saisie = 0.0;
+		this.valEnCours = 0.0;
+	}
+
+	/*
+	 * verifie si un signe '.' est deja insere et donc c'est un nombre deja decimal
+	 */
+	private boolean verifieVirgule(String saisie) {
+		boolean trouve = false;
+		if (saisie.length() < 1) {
+			trouve = false;
+
+		} else {
+			for (int i = 0; i < saisie.length(); i++) {
+				if (saisie.charAt(i) == '.') {
+					trouve = true;
+					break; // on sort inutile de continuer
+				}
+			}
+		}
+		affiche("pour saisie : " + saisie + " trouve : " + trouve);
+		return trouve;
+	}
+
+	public void affiche(String str) {
+		System.out.println(str);
+	}
+}

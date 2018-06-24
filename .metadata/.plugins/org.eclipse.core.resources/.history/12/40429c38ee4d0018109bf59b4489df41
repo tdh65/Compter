@@ -1,0 +1,140 @@
+package tpcalculatrice;
+
+import java.awt.BorderLayout;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class FenCalc extends JFrame {
+
+	private Panneau panGlob ; // le panneau global qui remplit le contentPane
+	private Panneau panChiffre ; // contient les chiffres
+	private Panneau panOperateur ;
+	private Panneau panAfficheur ;
+	private JLabel  afficheur ;
+	private byte operation  ; // l'operateur selectionne
+	private double valEnCours ; // le resultat intermediaire
+	private boolean efface = false  ;
+	private JButton bouton = new JButton("Mon premier bouton") ;
+	private JButton bouton2 = new JButton("Mon II bouton") ;
+	private String nameFenetre = "Bouton" ;
+	/*
+	 * constructeur par defaut 
+	 * definit les 3 panneaux
+	 * chiffre -> gridlayout
+	 * operateur ->boxlayout vertical
+	 * agencement des trois par borderlayout centre est nord
+	 */
+	public FenCalc() {
+		System.out.println("fenetre ; " ) ;
+		
+		this.setTitle("Calculatrice");
+		this.setLocationRelativeTo(null);
+		this.setSize(300, 300);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setBackground(Color.red);
+	//	this.setLayout(new BorderLayout());
+		/*
+		panGlob = new Panneau() ;
+		panGlob.setPreferredSize(new Dimension(300,300));
+		*/
+		/*
+		 * panel afficheur 
+		 */
+/*		this.afficheur = new JLabel();
+		
+*/		
+		// le panneau 
+		
+		
+		// panGlob.add(afficheur, BorderLayout.NORTH);
+		
+		
+/*		this.setPreferredSize(new Dimension(300,300));
+	
+		this.getContentPane().setLayout(new BorderLayout());
+		this.getContentPane().add(afficheur, BorderLayout.NORTH ) ;
+		
+	*/
+		// construit le panneau chiffre 
+		this.construitPanneauChiffre();
+		this.construitPanneauAfficheur();
+		this.construitPanneauOperateur();
+		this.getContentPane().add(this.panChiffre,BorderLayout.CENTER);
+		this.getContentPane().add(panAfficheur, BorderLayout.NORTH);
+		this.getContentPane().add(this.panOperateur, BorderLayout.EAST);
+		this.pack();
+		this.setVisible(true);
+		
+		
+	}
+	/*
+	 * construit le panneau d'operateurs
+	 */
+	private void construitPanneauOperateur() {
+		this.panOperateur = new Panneau() ;
+		BoxLayout bx = new BoxLayout(panOperateur, BoxLayout.Y_AXIS) ;
+		String[] t = {"C","+","-","*","/" }; 
+		for(String v : t) {
+			JButton b = new JButton(v);
+			if ( v.equals("C")) {
+				b.setForeground(Color.RED);
+			}
+			b.setMnemonic(v.charAt(0) ) ;
+			this.panOperateur.add( b);
+			
+		}
+	
+	}
+	/*
+	 * construit le panneau afficheur sur un seul panel pas de layout particulier
+	 * 
+	 */
+	private void construitPanneauAfficheur() {
+		this.panAfficheur = new Panneau();
+		this.afficheur = new JLabel();
+		//this.afficheur.setBackground(Color.LIGHT_GRAY);
+		this.afficheur.setPreferredSize(new Dimension(250 , 50));
+		//this.afficheur.setForeground(Color.orange);
+		Font ft = new Font ("Tahoma", Font.LAYOUT_RIGHT_TO_LEFT , 16) ;
+		this.afficheur.setFont(ft);
+		this.afficheur.setHorizontalAlignment(JLabel.RIGHT);
+		
+		this.afficheur.setText("0");
+		this.panAfficheur.add(afficheur);
+		
+		
+	}
+	/*
+	 * construit le panneau contenant les chiffres et le gridlayout
+	 */
+	private void construitPanneauChiffre() {
+		this.panChiffre = new Panneau() ;
+		
+		GridLayout gl = new GridLayout(); 
+		// on definit les colo et lignes
+		gl.setColumns(3);
+		gl.setRows(4);
+		// on definit lespacement entre les colonnes et les lignes
+		gl.setHgap(5); // 5 pixels H orizontal 
+		gl.setVgap(3); // 3 pixels V ertical
+		
+		this.panChiffre.setLayout(gl);
+		
+		String[] t = {"1","2","3","4","5","6","7","8","9","0",".","=" }; 
+		for(String v : t) {
+			JButton b = new JButton(v);
+			b.setMnemonic(v.charAt(0) ) ;
+			this.panChiffre.add( b);
+			
+		}
+		
+	}
+}

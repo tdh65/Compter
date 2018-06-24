@@ -1,0 +1,75 @@
+package gerertransaction;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+// implantation pattern singleton
+public class SdzConnection {
+
+	private static String url = "jdbc:postgresql://192.168.1.53:5432/Ecole";
+	private static String user = "postgres";
+	private static String passwd = "bitnami";
+	private static Connection connect = null;
+
+	// constructeur prive
+	private SdzConnection() {
+
+	}
+
+	// methode qui va nous retourner notre instance et a la creer si elle n existe
+	// pas
+	public static Connection getInstance() {
+		if (connect == null) {
+
+			try {
+				connect = DriverManager.getConnection(url, user, passwd);
+			} catch (SQLException es) {
+				es.printStackTrace();
+			}
+		}
+		return connect;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		PreparedStatement prepare = null;
+		try {
+			prepare = SdzConnection.getInstance().prepareStatement("SELECT * FROM CLASSE WHERE CLS_NOM = ?");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			prepare.setString(1, "MAMOU");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ResultSet result = null;
+		try {
+			result = prepare.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		try {
+			result.first();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			while(result.next())
+				System.out.println("nom : " + result.getString("PROF_NOM"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

@@ -1,0 +1,101 @@
+2018-04-22 11:09:42,134 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-22 11:24:54,447 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-22 13:36:29,241 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-22 20:19:14,694 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-23 20:59:44,284 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-04-24 19:30:40,641 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-25 20:43:59,491 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-04-28 11:45:06,864 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-04-29 17:20:59,223 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-04-30 15:53:11,360 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-01 10:15:49,392 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-05-01 20:09:54,865 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-01 23:30:52,990 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-02 10:51:24,483 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-05-02 17:34:51,199 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-02 18:43:56,434 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-03 14:22:45,492 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-05-03 20:56:04,881 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-04 11:05:31,697 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-04 14:37:26,807 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-05-04 17:26:24,649 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-06 10:16:01,451 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-05-06 17:59:01,813 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-06 18:51:21,855 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-06 19:54:52,467 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-28 22:46:59,270 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@64209d58
+2018-05-28 22:47:31,273 [Worker-12] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-05-28 22:51:13,426 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@224ba634
+2018-05-28 22:51:38,698 [Worker-13] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-03 21:17:44,887 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@2cc753a0
+2018-06-03 21:18:15,689 [Worker-11] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-03 22:25:01,314 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@59e9bb43
+2018-06-03 22:25:32,277 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-04 19:42:53,502 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@5e3b689a
+2018-06-04 19:43:21,004 [Worker-14] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-05 19:25:26,410 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@5a6aaf9f
+2018-06-05 19:25:56,796 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-06 19:38:51,766 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@57dad28b
+2018-06-06 19:39:21,278 [Worker-11] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-06 22:47:21,388 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@414bb17a
+2018-06-06 22:47:45,857 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-07 19:16:07,463 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@5c7bff6e
+2018-06-07 19:16:34,840 [Worker-10] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-07 22:09:53,085 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@7c35782e
+2018-06-07 22:10:21,144 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-07 22:29:30,878 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@36f4c790
+2018-06-07 22:29:56,375 [Worker-8] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-08 18:36:23,751 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@7c35782e
+2018-06-08 18:36:50,124 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-09 07:07:17,604 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@7d984423
+2018-06-09 07:07:47,215 [Worker-21] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-09 09:51:38,303 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@7522540e
+2018-06-09 09:52:03,074 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-09 19:07:08,499 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@5f9d3999
+2018-06-09 19:07:35,846 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-10 09:04:08,901 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@5a6aaf9f
+2018-06-10 09:04:35,712 [Worker-26] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-10 21:58:54,675 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@510fb2d8
+2018-06-10 21:59:20,931 [Worker-22] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-11 18:26:00,849 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@6a635f56
+2018-06-11 18:26:30,803 [Worker-8] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-12 06:24:03,759 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@6a635f56
+2018-06-12 06:24:28,897 [Worker-14] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-12 19:41:06,151 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@1bf093f5
+2018-06-12 19:41:34,200 [Worker-25] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-13 05:25:36,581 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@56a77313
+2018-06-13 05:26:05,935 [Worker-28] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-13 06:18:28,948 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@4c0a2a2b
+2018-06-13 06:18:56,478 [Worker-10] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-14 08:05:49,877 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@510fb2d8
+2018-06-14 08:06:18,983 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-16 13:31:41,209 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@510fb2d8
+2018-06-16 13:32:10,565 [Worker-13] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-17 07:08:15,700 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@2b25277b
+2018-06-17 07:08:44,913 [Worker-15] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-17 08:54:30,424 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@72cb82a9
+2018-06-17 08:54:58,831 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-17 09:42:18,249 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@e3c1a4b
+2018-06-17 09:42:41,435 [Worker-21] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-17 09:59:20,600 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@75498945
+2018-06-17 09:59:47,433 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-17 17:57:12,976 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@396f50d2
+2018-06-17 17:57:43,407 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-17 18:47:12,036 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@ed6bc2e
+2018-06-17 18:47:37,902 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-18 18:55:19,174 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@393507d6
+2018-06-18 18:55:53,313 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-19 05:51:13,698 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@54a9cb38
+2018-06-19 05:51:43,534 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-19 19:33:49,920 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@393507d6
+2018-06-19 19:34:21,150 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-20 05:31:53,398 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@762b1891
+2018-06-20 05:32:18,449 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-20 18:58:59,298 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@2fb425f4
+2018-06-20 18:59:32,040 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-22 22:03:53,432 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@37a01f53
+2018-06-22 22:04:21,982 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-06-23 17:55:00,609 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@37a01f53
+2018-06-23 17:55:29,655 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-06-24 13:10:15,928 [main] INFO  o.e.j.client.core.ClientTestImpl - adding IAUTEventListener org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor:org.eclipse.jubula.client.ui.rcp.controllers.TestExecutionContributor@37a01f53
+2018-06-24 13:10:43,125 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
