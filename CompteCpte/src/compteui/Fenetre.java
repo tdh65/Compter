@@ -71,6 +71,7 @@ public class Fenetre extends JFrame {
 																 * construite le panneau haut label fichier in , label
 																 * fichier out bouton start , recherche (+ tard)
 																 */
+		this.pathToExport = this.pathToImport ;
 		panHaut = new JPanel();
 		start = new JButton("Start");
 		start.setPreferredSize(new Dimension(75, 30));
@@ -229,10 +230,15 @@ public class Fenetre extends JFrame {
 						// extraits
 						// affiche("avant txtlbl : " + txtlblpanogauche);
 						txtlblpanogauche =  tmpFile.getName() + " => " + vL96.getM_NomFichier() + " =  " + k ;
-						
+						if (!tmpFile.renameTo(new File(this.pathToExport + vL96.getM_NomFichier())))  {
+							affiche (" Erreur dans le renommage de " + tmpFile.getName() + " en " + this.pathToExport + vL96.getM_NomFichier() + "." );
+							
+							
+						}
 						affiche("apres txtlbl  : " + txtlblpanogauche);
 						jtxaPanoGauche.append(txtlblpanogauche + newline);
 						jtxaPanoGauche.selectAll();
+						
 
 						// Make sure the new text is visible, even if there
 						// was a selection in the text area.
