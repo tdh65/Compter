@@ -9,6 +9,7 @@ import java.sql.Statement;
 public class Test {
 
 	public static void main(String[] args) {
+
 	    try {
 	        Class.forName("org.postgresql.Driver");
 	        String url = "jdbc:postgresql://192.168.1.53:5432/Ecole";
@@ -75,6 +76,7 @@ public class Test {
 	      }
 	    }
 	public static void affiche(String str) {
+
 		System.out.println(str);
 	}
 
